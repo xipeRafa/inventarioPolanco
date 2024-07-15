@@ -38,35 +38,35 @@ export const AuctionCard = ({ item }) => {
         {/*<p>Creado: {  new Date(item.duration).toLocaleDateString("es-ES", {year: 'numeric', month: 'long', day: 'numeric'})}</p>*/}
         <p> {milisegundosComoFecha(item.duration)}  </p>
         <hr />
-        <p>Nombre: {item.name}</p>
-        <p>para: {item.para}</p>
-        <p> categoria: {item.category}</p>
-        <p> precio: {item.price}</p>
+        <p>Nombre: <span>{item.name}</span></p>
+        <p>para: <span>{item.para}</span></p>
+        <p> categoria: <span>{item.category}</span></p>
+        <p> precio: <span>{item.price}</span></p>
         <hr />
 
-        <p> marca: {item.marca}</p>
-        <p> talla: {item.talla}</p>
-        <p> color: {item.color}</p>
-        <p> tela: {item.tela}</p>
-        <p> stock hermosillo: {item.stockHermosillo}</p>
+        <p> marca: <span>{item.marca}</span></p>
+        <p> talla: <span>{item.talla}</span></p>
+        <p> color: <span>{item.color}</span></p>
+        <p> tela: <span>{item.tela}</span></p>
+        <p> stock hermosillo: <span>{item.stockHermosillo}</span></p>
         <hr />
 
-        <p> stock San Carlos: {item.stockSanCarlos}</p>
-        <p> Descripcion {item.description}</p>
+        <p> stock San Carlos: <span>{item.stockSanCarlos}</span></p>
+        <p> Descripcion <span>{item.description}</span></p>
 
 
         <hr/>
-<div className='btnBorrarInforme'> 
-        <button
-          className="btn btn-danger"
-          onClick={() => {
-            if (
-              window.confirm(`Quiere Borrar este Documento? ${item.imgName}`)
-            ) {
-              deleteById(item.id, item.imgName);
-              setToggle(!toggle);
-            }
-          }}
+
+
+        <div className='btnBorrarInforme'> 
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              if (window.confirm(`Quiere Borrar este Documento? ${item.name}`)) {
+                  deleteById(item.id, item.imgName);
+                  setToggle(!toggle);
+                }
+              }}
         >
           Borrar
         </button>
