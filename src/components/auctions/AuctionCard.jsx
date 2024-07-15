@@ -10,11 +10,11 @@ import { FireStoreDataContext } from '../../context/FireStoreDataContext';
 
 
 export const AuctionCard = ({ item }) => {
-  //const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });
-  /* 
+  const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });
+   
   const milisegundosComoFecha = (milisegundos) => {
       return formateador.format(new Date(milisegundos));
-  }; */
+  }; 
 
 
 
@@ -34,8 +34,9 @@ export const AuctionCard = ({ item }) => {
       />
 
       <div className="card-body p-4 ">
-        {/* <h5>Creado: {  new Date(item.duration).toLocaleDateString("es-ES", {year: 'numeric', month: 'long', day: 'numeric'})}</h5> */}
-        <h5>{/* {milisegundosComoFecha(item.duration)} */} </h5>
+
+        {/*<p>Creado: {  new Date(item.duration).toLocaleDateString("es-ES", {year: 'numeric', month: 'long', day: 'numeric'})}</p>*/}
+        <p> {milisegundosComoFecha(item.duration)}  </p>
         <hr />
         <p>Nombre: {item.name}</p>
         <p>para: {item.para}</p>
