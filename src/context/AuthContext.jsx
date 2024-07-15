@@ -15,13 +15,34 @@ const AuthProvider = (props) => {
       await createUserWithEmailAndPassword(authApp, email, password);
       login(authApp, email, password);
     } catch (error) {
-      console.error(error);
+
+          console.error("code.error", error.code);
+
+            const errorObj = {
+                "auth/email-already-in-use": () => alert("El Correo ya esta en Uso"),
+                "auth/operation-not-allowed": () =>alert("Operacion No Permitida."),
+
+                "auth/weak-password": () => alert("La contraseña es muy débil."),
+                "auth/invalid-email": () => alert("El Correo No es Valido"),
+            };
+
+            const myswithFunction = (errorCode) => {
+                errorObj[errorCode]();
+            };
+
+            myswithFunction(error.code);
     }
   };
+
+
+
+
+
 
   const [stateLogout, setStateLogout] = useState(true);
 
   const login = (authApp, email, password) => {
+    
     signInWithEmailAndPassword(authApp, email, password)
       .then((userCredential) => {
         // Signed in
@@ -31,18 +52,28 @@ const AuthProvider = (props) => {
         location.reload();
       })
       .catch((error) => {
-        const errorCode = error.code;
-        console.log(errorCode);
-        const errorMessage = error.message;
-        console.log(errorMessage);
+          console.log(error.code);
+          console.log(error.message);
+
+          if (error.code == "auth/invalid-credential") {
+              alert("Contraseña o Correo son Incorrrectos");
+          }
+
       });
   };
+
+
+
+
 
   const logout = () => {
     signOut(authApp);
     localStorage.removeItem('userEmailLS');
     setStateLogout(!stateLogout);
   };
+
+
+
 
   return (
     <AuthContext.Provider

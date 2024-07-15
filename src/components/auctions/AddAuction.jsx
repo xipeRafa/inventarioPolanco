@@ -8,10 +8,42 @@ import {
   Col /* , Select */,
 } from 'react-bootstrap';
 
+import Resizer from "react-image-file-resizer";
+
 import { FireStoreDataContext } from '../../context/FireStoreDataContext';
+
+
+
+
 
 export const AddAuction = ({ setAuction }) => {
   const { handleFileAdd } = useContext(FireStoreDataContext);
+
+  const[img, setImg]=useState()
+
+const resizeFile = (file) =>
+  new Promise((resolve) => {
+    Resizer.imageFileResizer(
+      file,
+      300,
+      300,
+      "JPEG",
+      80,
+      0,
+      (uri) => {resolve(uri);},"base64");
+  });
+
+  const onResize = async (event) => {
+    const file = event.target.files[0];
+
+    const image = await resizeFile(file);
+
+    fetch(image).then(res => res.blob())
+      .then(blob => {
+          const file = new File([blob], Date.now()+'.jpeg',{ type: "image/jpeg" })
+          setImg(file)
+    })
+  };
 
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState('');
@@ -57,22 +89,22 @@ export const AddAuction = ({ setAuction }) => {
       para: para.current.value,
 
       category: category.current.value,
-      price: precio.current.value,
+      price: Number(precio.current.value),
       marca: marca.current.value,
 
       duration: dueDate,
 
       color: color.current.value,
       tela: tela.current.value,
-      stockHermosillo: stockHermosillo.current.value,
+      stockHermosillo: Number(stockHermosillo.current.value),
 
       talla: talla.current.value,
 
-      stockSanCarlos: stockSanCarlos.current.value,
+      stockSanCarlos: Number(stockSanCarlos.current.value),
       description: description.current.value,
     };
 
-    handleFileAdd(itemImage.current?.files[0], newAuction);
+    handleFileAdd(img, newAuction);
 
     closeForm();
   };
@@ -101,6 +133,21 @@ export const AddAuction = ({ setAuction }) => {
                 {localStorage.getItem('userEmailLS')}
               </Col>
             </Row>
+            <Row>
+              <Col>
+                <Form.Label>Imagen</Form.Label>
+                <Form.Group>
+                  <Form.Control
+                    type="file"
+                    label="Cargar Foto"
+                    required
+                    ref={itemImage}
+                    onChange={onResize}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+            <hr/>
             <Row>
               <Col>
                 <Form.Group>
@@ -196,21 +243,8 @@ export const AddAuction = ({ setAuction }) => {
                 </Form.Group>
               </Col>
             </Row>
-            <hr />
 
-            <Row>
-              <Col>
-                <Form.Label>Imagen</Form.Label>
-                <Form.Group>
-                  <Form.Control
-                    type="file"
-                    label="Cargar Foto"
-                    required
-                    ref={itemImage}
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
+            
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={closeForm}>

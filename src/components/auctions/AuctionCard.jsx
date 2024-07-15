@@ -1,5 +1,13 @@
 import { useContext } from 'react';
 import { FireStoreDataContext } from '../../context/FireStoreDataContext';
+  import './auctionCard.css'
+
+
+
+
+
+
+
 
 export const AuctionCard = ({ item }) => {
   //const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });
@@ -7,6 +15,8 @@ export const AuctionCard = ({ item }) => {
   const milisegundosComoFecha = (milisegundos) => {
       return formateador.format(new Date(milisegundos));
   }; */
+
+
 
   const { deleteById, setToggle, toggle } = useContext(FireStoreDataContext);
 
@@ -27,22 +37,25 @@ export const AuctionCard = ({ item }) => {
         {/* <h5>Creado: {  new Date(item.duration).toLocaleDateString("es-ES", {year: 'numeric', month: 'long', day: 'numeric'})}</h5> */}
         <h5>{/* {milisegundosComoFecha(item.duration)} */} </h5>
         <hr />
-        <h5>Nombre: {item.name}</h5>
-        <h5>para: {item.para}</h5>
-        <h5> categoria: {item.category}</h5>
-        <h5> precio: {item.price}</h5>
+        <p>Nombre: {item.name}</p>
+        <p>para: {item.para}</p>
+        <p> categoria: {item.category}</p>
+        <p> precio: {item.price}</p>
         <hr />
 
-        <h5> marca: {item.marca}</h5>
-        <h5> talla: {item.talla}</h5>
-        <h5> color: {item.color}</h5>
-        <h5> tela: {item.tela}</h5>
-        <h5> stock hermosillo: {item.stockHermosillo}</h5>
+        <p> marca: {item.marca}</p>
+        <p> talla: {item.talla}</p>
+        <p> color: {item.color}</p>
+        <p> tela: {item.tela}</p>
+        <p> stock hermosillo: {item.stockHermosillo}</p>
         <hr />
 
-        <h5> stock San Carlos: {item.stockSanCarlos}</h5>
-        <h5> Descripcion {item.description}</h5>
+        <p> stock San Carlos: {item.stockSanCarlos}</p>
+        <p> Descripcion {item.description}</p>
 
+
+        <hr/>
+<div className='btnBorrarInforme'> 
         <button
           className="btn btn-danger"
           onClick={() => {
@@ -56,6 +69,7 @@ export const AuctionCard = ({ item }) => {
         >
           Borrar
         </button>
+        </div>
       </div>
     </div>
   );

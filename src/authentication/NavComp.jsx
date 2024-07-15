@@ -25,7 +25,10 @@ export const NavComp = () => {
                 {localStorage.getItem('userEmailLS')}
               </div>
               <div
-                onClick={() => logout()}
+                onClick={() => {if (window.confirm(`Quieres Salir?`)) {
+                                            logout()
+                                }
+                        }}
                 className="btn btn-outline-secondary mx-2"
               >
                 SALIR
