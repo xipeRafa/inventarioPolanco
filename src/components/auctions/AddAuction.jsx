@@ -60,7 +60,6 @@ const resizeFile = (file) =>
   const tela = useRef();
   const stockHermosillo = useRef();
 
-  const stockSanCarlos = useRef();
   const description = useRef();
 
   const openForm = () => setShowForm(true);
@@ -100,7 +99,6 @@ const resizeFile = (file) =>
 
       talla: talla.current.value,
 
-      stockSanCarlos: Number(stockSanCarlos.current.value),
       description: description.current.value,
     };
 
@@ -227,14 +225,7 @@ const resizeFile = (file) =>
               </Col>
             </Row>
 
-            <Row>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Stock San Carlos</Form.Label>
-                  <Form.Control type="number" required ref={stockSanCarlos} />
-                </Form.Group>
-              </Col>
-            </Row>
+           
             <Row>
               <Col>
                 <Form.Group>

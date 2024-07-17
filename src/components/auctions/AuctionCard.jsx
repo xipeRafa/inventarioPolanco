@@ -51,7 +51,6 @@ export const AuctionCard = ({ item }) => {
         <p> stock hermosillo: <span>{item.stockHermosillo}</span></p>
         <hr />
 
-        <p> stock San Carlos: <span>{item.stockSanCarlos}</span></p>
         <p> Descripcion <span>{item.description}</span></p>
 
 

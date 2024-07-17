@@ -6,3 +6,7 @@ input[type=text]{
 .btnBorrarInforme {
     text-align: center;
 }
+
+body{
+  background-color: rgba(0, 68, 255, 0.137)!important;
+}
