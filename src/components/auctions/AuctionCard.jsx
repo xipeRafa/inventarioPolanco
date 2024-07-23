@@ -74,7 +74,7 @@ function QrFunction(){
 
         <div className='btnBorrarInforme'> 
           <button
-            className="btn btn-danger"
+            className="btn btn-danger mb-5"
             onClick={() => {
               if (window.confirm(`Quiere Borrar este Documento? ${item.name}`)) {
                   deleteById(item.id, item.imgName);
@@ -82,14 +82,15 @@ function QrFunction(){
                 }
               }}
         >
-          Borrar
+          BORRAR
         </button>
     
-       
+        <QrFunction />
+         <button className="btn btn-outline-dark">Imprimir QR</button>
         </div>
 
       </div>
-       <QrFunction />
+      
     </div>
   );
 };
