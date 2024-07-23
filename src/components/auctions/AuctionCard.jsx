@@ -23,7 +23,7 @@ export const AuctionCard = ({ item }) => {
 
 
 function QrFunction(){
-      let typeNumber = 26;
+      let typeNumber = 4;
       let errorCorrectionLevel = 'L';
       let qr = qrcode(typeNumber, errorCorrectionLevel);
       qr.addData(`https://xiperafa.github.io/polancoEcommerc/item/${item.id}`);
