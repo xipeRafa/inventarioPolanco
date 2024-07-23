@@ -54,19 +54,19 @@ function QrFunction(){
         <p> {milisegundosComoFecha(item.duration)}  </p>
         <hr />
         <p>Nombre: <span>{item.name}</span></p>
-        <p>para: <span>{item.para}</span></p>
-        <p> categoria: <span>{item.category}</span></p>
-        <p> precio: <span>{item.price}</span></p>
+        <p>Para: <span>{item.para}</span></p>
+        <p> Categoria: <span>{item.category}</span></p>
+        <p> Precio: $ <span> { item.price}</span></p>
         <hr />
 
-        <p> marca: <span>{item.marca}</span></p>
-        <p> talla: <span>{item.talla}</span></p>
-        <p> color: <span>{item.color}</span></p>
-        <p> tela: <span>{item.tela}</span></p>
-        <p> stock hermosillo: <span>{item.stockHermosillo}</span></p>
+        <p> Marca: <span>{item.marca}</span></p>
+        <p> Talla: <span>{item.talla}</span></p>
+       
+        <p> Tela: <span>{item.tela}</span></p>
+        <p> Stock Hermosillo: <span>{item.stockHermosillo}</span></p>
         <hr />
 
-        <p> Descripcion <span>{item.description}</span></p>
+        <p> Descripcion: <span>{item.description}</span></p>
 
 
         <hr/>
