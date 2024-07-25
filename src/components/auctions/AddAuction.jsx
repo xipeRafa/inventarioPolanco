@@ -56,7 +56,6 @@ const resizeFile = (file) =>
   const itemImage = useRef();
   //const itemImageName = useRef();
   const talla = useRef();
-  const color = useRef();
   const tela = useRef();
   const stockHermosillo = useRef();
 
@@ -93,7 +92,6 @@ const resizeFile = (file) =>
 
       duration: dueDate,
 
-      color: color.current.value,
       tela: tela.current.value,
       stockHermosillo: Number(stockHermosillo.current.value),
 
@@ -198,14 +196,6 @@ const resizeFile = (file) =>
               </Col>
             </Row>
 
-            <Row>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Color</Form.Label>
-                  <Form.Control type="text" required ref={color} />
-                </Form.Group>
-              </Col>
-            </Row>
             <Row>
               <Col className="mb-2">
                 <Form.Label>tela</Form.Label>
