@@ -26,17 +26,14 @@ function QrFunction(){
       let typeNumber = 4;
       let errorCorrectionLevel = 'L';
       let qr = qrcode(typeNumber, errorCorrectionLevel);
-      qr.addData(`https://xiperafa.github.io/polancoEcommerc/item/${item.id}`);
+      qr.addData(`https://xiperafa.github.io/adminPolanco/${item.id}`);
       qr.make();
       return <div dangerouslySetInnerHTML={{ __html: qr.createImgTag() }} />
 }
 
-//QR.innerHTML='<p>kok</p>'
-
-
 
   return (
-    <div className="card shadow-sm " onClick={()=>qrFunction()}>
+    <div className="card shadow-sm " >
       <div
         style={{
           height: '180px',
@@ -53,25 +50,36 @@ function QrFunction(){
         {/*<p>Creado: {  new Date(item.duration).toLocaleDateString("es-ES", {year: 'numeric', month: 'long', day: 'numeric'})}</p>*/}
         <p> {milisegundosComoFecha(item.duration)}  </p>
         <hr />
+        {/*{item.id}*/}
         <p>Nombre: <span>{item.name}</span></p>
-        <p>Para: <span>{item.para}</span></p>
-        <p> Categoria: <span>{item.category}</span></p>
-        <p> Precio: $ <span> { item.price}</span></p>
+        <p>para: <span>{item.para}</span></p>
+        <p>categoria: <span>{item.category}</span></p>
+        
         <hr />
 
-        <p> Marca: <span>{item.marca}</span></p>
-        <p> Talla: <span>{item.talla}</span></p>
+        <p> marca: <span>{item.marca}</span></p>
        
-        <p> Tela: <span>{item.tela}</span></p>
-        <p> Stock Hermosillo: <span>{item.stockHermosillo}</span></p>
-        <hr />
+        <p> tela: <span>{item.tela}</span></p>
+        
 
-        <p> Descripcion: <span>{item.description}</span></p>
+        <p> Descripción <span>{item.description}</span></p>
 
 
         <hr/>
 
+        <p> Stock Hermosillo: <span>{item.stockHermosillo}</span></p>
+        <p> Precio: <span>{item.price} $ </span></p>
+        <p> Tallas: </p>
+        {item?.talla?.map((el,i)=>(
+                          <b key={i}><span>{el }, </span></b>
+        ))}
 
+
+
+
+        <hr/> 
+
+        
         <div className='btnBorrarInforme'> 
           <button
             className="btn btn-danger mb-2 mt-2"
@@ -82,10 +90,9 @@ function QrFunction(){
                 }
               }}
         >
-          BORRAR
+          Borrar
         </button>
 
-        <hr/>
     
         <QrFunction />
          <button className="btn btn-dark btn-sm mt-1">IMPRIMIR QR</button>

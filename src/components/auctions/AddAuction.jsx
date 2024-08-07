@@ -48,6 +48,20 @@ const resizeFile = (file) =>
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState('');
 
+
+
+    const [tallaState, setTallaState]=useState('')
+
+
+
+
+  const handleTallaState=(e)=>{
+      let str = e.target.value
+      let arr = str.split(',')
+      setTallaState(arr)
+  }
+
+
   const nombre = useRef();
   const para = useRef();
   const category = useRef();
@@ -55,7 +69,7 @@ const resizeFile = (file) =>
   const marca = useRef();
   const itemImage = useRef();
   //const itemImageName = useRef();
-  const talla = useRef();
+  //const talla = useRef();
   const tela = useRef();
   const stockHermosillo = useRef();
 
@@ -95,7 +109,7 @@ const resizeFile = (file) =>
       tela: tela.current.value,
       stockHermosillo: Number(stockHermosillo.current.value),
 
-      talla: talla.current.value,
+      talla: tallaState,
       sucursal: 'Hermosillo',
       description: description.current.value,
     };
@@ -173,8 +187,8 @@ const resizeFile = (file) =>
             </Row>
             <Row>
               <Col>
-                <Form.Label>talla</Form.Label>
-                <Form.Control type="text" required ref={talla} />
+                <Form.Label>Talla</Form.Label>
+                 <Form.Control type="text" required  onChange={(e)=>handleTallaState(e)} value={tallaState} placeholder='separar cada talla con una coma ,' />
               </Col>
             </Row>
             <hr />
