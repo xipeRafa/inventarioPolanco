@@ -9,4 +9,5 @@ input[type=text]{
 
 body{
   background-color: rgba(0, 68, 255, 0.137)!important;
+  overflow-x: hidden;
 }
