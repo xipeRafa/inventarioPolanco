@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 
 import { authApp } from '../firebase/firebaseConfig';
+
 import {
   createUserWithEmailAndPassword,
   signOut,
