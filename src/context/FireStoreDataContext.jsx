@@ -28,7 +28,8 @@ const FireStoreDataProvider = (props) => {
 
   const itemCollection = query(
     collection(firestoreDB, 'inventario'),
-    where('email', '==', localStorage.getItem('userEmailLS'))
+    where('email', '==', localStorage.getItem('userEmailLS')),
+     where('sucursal', '==', 'Hermosillo')
   );
 
   const postCollection = collection(firestoreDB, 'inventario');
