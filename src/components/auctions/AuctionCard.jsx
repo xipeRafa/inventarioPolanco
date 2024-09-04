@@ -95,7 +95,7 @@ function QrFunction(){
 
     
         <QrFunction />
-         <button className="btn btn-dark btn-sm mt-1">IMPRIMIR QR</button>
+         {/*<button className="btn btn-dark btn-sm mt-1">IMPRIMIR QR</button>*/}
         </div>
 
       </div>
