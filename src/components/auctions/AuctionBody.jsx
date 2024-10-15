@@ -22,12 +22,16 @@ export const AuctionBody = () => {
 
   return (
     <div className="">
-    <button onClick={()=>setHmState(!hmState)}> {(hmState ? 'hombre' : 'mujer').toUpperCase()}</button>
+    <button onClick={()=>setHmState(!hmState)}> {(hmState ? 'hombre' : 'mujer').toUpperCase()} </button>
       {localStorage.getItem('userEmailLS') !== null && <AddAuction />}
 
       {stateLogout ? (
-        <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 p-5 g-3 border mt-1 ">
-          {items.sort((a, b) => b.duration - a.duration).filter(el => el.para === (hmState ? 'hombre' : 'mujer')).slice(sliceState, sliceState + prodByPage).map((doc, i) => {
+        <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 p-5 g-3 border mt-1">
+          {items.sort((a, b) => b.duration - a.duration).filter(el => el.para === (hmState ? 'hombre' : 'mujer'))
+
+
+
+          .slice(sliceState, sliceState + prodByPage).map((doc, i) => {
             return <AuctionCard item={doc} key={i} />;
           })}
         </div>

@@ -80,7 +80,7 @@ function QrFunction(){
         <hr/> 
 
         
-        <div className='btnBorrarInforme'> 
+        <div className=' d-none btnBorrarInforme'> 
           <button
             className="btn btn-danger mb-2 mt-2"
             onClick={() => {
