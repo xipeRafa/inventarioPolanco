@@ -22,8 +22,10 @@ export const AuctionBody = () => {
 let a = 0
 
   return (
-    <div className="">
-    <button onClick={()=>setHmState(!hmState)}> {(hmState ? 'hombre' : 'mujer').toUpperCase()} </button>
+    <div className="text-center">
+    {localStorage.getItem('userEmailLS') !== null &&
+      <button className="btn btn-light" onClick={()=>setHmState(!hmState)}> {(hmState ? 'hombre' : 'mujer').toUpperCase()} </button>
+    }
       {localStorage.getItem('userEmailLS') !== null && <AddAuction />}
 
       {stateLogout ? (
@@ -46,7 +48,7 @@ let a = 0
       )}
 
 
-
+{localStorage.getItem('userEmailLS') !== null &&
 
         <div className='sliceButtons'>
 
@@ -96,7 +98,7 @@ let a = 0
 
         </div>
 
-
+}
 
 
     </div>

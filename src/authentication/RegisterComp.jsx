@@ -79,8 +79,8 @@ export const RegisterComp = () => {
 
 
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={closeForm}> Cancelar </Button>
-                        <Button variant="primary" type="submit"> Registro </Button>
+                        <Button variant="secondary" disabled onClick={closeForm}> Cancelar </Button>
+                        <Button variant="primary" disabled type="submit"> Registro </Button>
                     </Modal.Footer>
 
                 </form>
