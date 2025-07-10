@@ -19,6 +19,7 @@ export const AuctionBody = () => {
 
           const [hmState, setHmState]=useState(true)
 
+let a = 0
 
   return (
     <div className="">
@@ -29,6 +30,11 @@ export const AuctionBody = () => {
         <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 p-5 g-3 border mt-1">
           {items.sort((a, b) => b.duration - a.duration).filter(el => el.para === (hmState ? 'hombre' : 'mujer'))
 
+           //.filter(el => el.talla[a]=='38' || el.talla[a]=='m' || el.talla[a]=='m')
+
+            //.filter(el => el.tela=='lino')
+            // .filter(el => el.name=='Guayabera')
+            //.filter(el => el.category == 'blanco')
 
 
           .slice(sliceState, sliceState + prodByPage).map((doc, i) => {

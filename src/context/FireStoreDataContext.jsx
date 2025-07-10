@@ -51,6 +51,7 @@ const FireStoreDataProvider = (props) => {
         }));
 
         setItems(documents);
+    
       })
       .catch((err) => {
         console.log('Error searching items', err);

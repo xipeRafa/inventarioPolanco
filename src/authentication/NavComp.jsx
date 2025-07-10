@@ -23,7 +23,7 @@ export const NavComp = () => {
           {localStorage.getItem('userEmailLS') !== null ? (
             <>
               <div className="btn btn-secondary mx-2 disabled">
-                <b>INVENTARIO HERMOSILLO</b>
+                <b>INV. HERMOSILLO</b>
               </div>
               <div
                 onClick={() => {if (window.confirm(`Quieres Salir?`)) {
